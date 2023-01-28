@@ -1,14 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import { PostCard, PostWidget, Categories } from '../components';
+import { PostCard, PostWidget, Categories } from "$components";
+import { getPosts } from '$services';
 
-const posts = [
-  { title: 'xxx', excerpt: 'yyy' },
-  { title: 'xxx2', excerpt: 'yyy2' }
-];
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+  return {
+    props: { posts }
+  }
+}
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ posts }: any ) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>

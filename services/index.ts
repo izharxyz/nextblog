@@ -32,6 +32,7 @@ export const getPosts = async () => {
             }
         }
     `
-
-    const results = await request(graphqlAPI, query);
+    
+    const result = await request(graphqlAPI, query);
+    return result.postsConnection.edges;
 }
