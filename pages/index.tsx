@@ -4,6 +4,30 @@ import Head from 'next/head'
 import { PostCard, PostWidget, Categories } from "$components";
 import { getPosts } from '$services';
 
+interface Posts {
+  posts: {
+    author: {
+      name: string
+      id: string
+      bio?: string
+      photo?: {
+        url: string
+      }
+    }
+    title: string
+    excerpt: string
+    createdAt: string
+    slug: string
+    featuredImage: {
+      url: string
+    }
+    categories: {
+      name: string
+      slug: string
+    }
+  }[]
+}
+
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
   return {
@@ -11,7 +35,9 @@ export async function getStaticProps() {
   }
 }
 
-const Home: NextPage = ({ posts }: any ) => {
+
+
+const Home = ({ posts }: Posts) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
