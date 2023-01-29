@@ -1,6 +1,7 @@
 import { gql, request } from "graphql-request";
+import { getEnvOrError } from "./env";
 
-const graphqlAPI: string = process.env.NEXT_PUBLIC_API_URL!;
+const graphqlAPI: string = getEnvOrError("NEXT_PUBLIC_API_URL");
 
 export const getPosts = async () => {
     const query = gql`
