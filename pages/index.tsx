@@ -4,27 +4,31 @@ import Head from 'next/head'
 import { PostCard, PostWidget, Categories } from "$components";
 import { getPosts } from '$services';
 
-interface Posts {
-  posts: {
-    author: {
-      name: string
-      id: string
-      bio?: string
-      photo?: {
-        url: string
-      }
-    }
-    title: string
-    excerpt: string
-    createdAt: string
-    slug: string
-    featuredImage: {
+interface Post {
+  author: {
+    name: string
+    id: string
+    bio?: string
+    photo?: {
       url: string
     }
-    categories: {
-      name: string
-      slug: string
-    }
+  }
+  title: string
+  excerpt: string
+  createdAt: string
+  slug: string
+  featuredImage: {
+    url: string
+  }
+  categories: {
+    name: string
+    slug: string
+  }
+}
+
+interface Posts {
+  posts: {
+    node: Post
   }[]
 }
 
@@ -46,7 +50,7 @@ const Home = ({ posts }: Posts) => {
       </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className='lg:col-span-8 col-span-1'>
-          {posts.map((post, index) => <PostCard post={post} key={post.title}/>)}
+          {posts.map((post, index) => <PostCard post={post.node} key={post.node.title}/>)}
         </div>
         <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
