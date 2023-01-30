@@ -2,8 +2,13 @@ import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
 import { getCategories } from '$services';
 
+interface Category {
+  name: string;
+  slug: string;
+}
+
 const Categories = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<Category[]>([])
 
   useEffect(() => {
     getCategories()

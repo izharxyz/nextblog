@@ -2,8 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { getCategories } from '$services';
 import Link from 'next/link';
 
+
+interface Category {
+  name: string;
+  slug: string;
+}
+
 const Header = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<Category[]>([])
 
   useEffect(() => {
     getCategories()
