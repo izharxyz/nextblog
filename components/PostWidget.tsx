@@ -5,12 +5,38 @@ import Link from 'next/link';
 import { getRecentPosts, getSimilarPosts } from '$services';
 
 interface Props {
-  categories?: string[];
-  slug?: string;
+  categories: string;
+  slug: string;
 }
 
+interface Post {
+  
+    author: {
+      name: string
+      id: string
+      bio?: string
+      photo?: {
+        url: string
+      }
+    }
+    title: string
+    excerpt: string
+    createdAt: string
+    slug: string
+    featuredImage: {
+      url: string
+    }
+    categories: {
+      name: string
+      slug: string
+    }
+    content: any
+  
+}
+
+
 const PostWidget = ({ categories, slug}: Props) => {
-  const [relatedPosts, setrelatedPosts] = useState([]);
+  const [relatedPosts, setrelatedPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     if (slug) {

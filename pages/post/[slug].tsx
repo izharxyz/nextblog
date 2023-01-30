@@ -5,14 +5,41 @@ import { GetStaticPaths } from 'next';
 import { Categories, PostWidget, PostDetail, Author, Comments, CommentForm } from '$components';
 
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
     const data = (await getPostDetails(params.slug)) || [];
     return {
       props: { post: data }
     }
 }
 
-const postDetail = ({ post }) => {
+interface Post {
+    post: {
+      author: {
+        name: string
+        id: string
+        bio?: string
+        photo?: {
+          url: string
+        }
+      }
+      title: string
+      excerpt: string
+      createdAt: string
+      slug: string
+      featuredImage: {
+        url: string
+      }
+      categories: {
+        name: string
+        slug: string
+      }[]
+      content: any
+    }
+    
+  }
+
+
+const postDetail = ({ post }: Post) => {
   return (
     <div className='container mx-auto px-10 mb-8'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
