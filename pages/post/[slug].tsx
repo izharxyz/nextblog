@@ -17,11 +17,11 @@ interface Post {
       author: {
         name: string
         id: string
-        bio?: string
+        bio?: string | undefined
         photo?: {
           url: string
-        }
-      }
+        } | undefined
+      } 
       title: string
       excerpt: string
       createdAt: string
@@ -34,12 +34,11 @@ interface Post {
         slug: string
       }[]
       content: any
-    }
-    
-  }
+    }  
+}
 
 
-const postDetail = ({ post }: Post) => {
+const postDetail = ({ post }: any) => {
   return (
     <div className='container mx-auto px-10 mb-8'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
@@ -50,7 +49,7 @@ const postDetail = ({ post }: Post) => {
                 <Comments slug={post.slug} />
             </div>
             <div className='col-span-1 lg:col-span-4'>
-                <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)}/>
+                <PostWidget slug={post.slug} categories={post.categories.map((category: any) => category.slug)}/>
                 <Categories/>
             </div>
         </div>

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getRecentPosts, getSimilarPosts } from '$services';
 
 interface Props {
-  categories: string;
+  categories: any;
   slug: string;
 }
 
