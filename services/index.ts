@@ -38,6 +38,40 @@ export const getPosts = async () => {
     return result.postsConnection.edges;
 }
 
+export const getPostDetails = async (slug: string) => {
+    const query = gql`
+        query GetPostDetails( $slug: String! ) {
+            post (where: { slug: $slug}) {
+                author {
+                    bio
+                    name
+                    id
+                    photo {
+                        url
+                    }
+                }
+                createdAt
+                excerpt
+                slug
+                title
+                featuredImage {
+                    url
+                }
+                categories {
+                    name
+                    slug
+                }
+                content {
+                    raw
+                }
+            }
+        }
+    `
+    
+    const result = await request(graphqlAPI, query, { slug });
+    return result.post;
+}
+
 export const getRecentPosts = async () => {
     const query = gql`
     query GetRecentPostDetails {
@@ -59,9 +93,9 @@ export const getRecentPosts = async () => {
     return result.posts;
 }
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (categories: string, slug: string) => {
     const query = gql`
-    query GetSimilarPostDetails($slug: string!, $categories: [string!]) {
+    query GetSimilarPostDetails($slug: String!, $categories: [String!]) {
         posts (
             where: { slug_not: $slug, AND: { categories_some: { slug_in: $categories }}}
             last: 3
@@ -76,7 +110,7 @@ export const getSimilarPosts = async () => {
     }
     `
 
-    const result = await request(graphqlAPI, query);
+    const result = await request(graphqlAPI, query, {slug, categories});
     return result.posts;
 }
 
