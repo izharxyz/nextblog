@@ -1,7 +1,7 @@
 import { gql, request } from "graphql-request";
 import { getEnvOrError } from "./env";
 
-const graphqlAPI: string = getEnvOrError("NEXT_PUBLIC_API_URL");
+const graphqlAPI: string = process.env.NEXT_PUBLIC_API_URL!;
 
 export const getPosts = async () => {
     const query = gql`
@@ -43,6 +43,27 @@ export const getRecentPosts = async () => {
     query GetRecentPostDetails {
         posts (
             orderBy: createdAt_ASC
+            last: 3
+        ) {
+            title
+            featuredImage {
+                url
+            }
+            createdAt
+            slug
+        }
+    }
+    `
+
+    const result = await request(graphqlAPI, query);
+    return result.posts;
+}
+
+export const getSimilarPosts = async () => {
+    const query = gql`
+    query GetSimilarPostDetails($slug: string!, $categories: [string!]) {
+        posts (
+            where: { slug_not: $slug, AND: { categories_some: { slug_in: $categories }}}
             last: 3
         ) {
             title
