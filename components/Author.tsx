@@ -1,8 +1,34 @@
 import React from 'react'
 
-const Author = ({ author}: any) => {
+interface Author {
+    author: {
+        name: string
+        bio: string
+        photo: {
+            url: string
+        }
+    }
+}
+
+const Author = ({ author}: Author) => {
   return (
-    <div>Author</div>
+    <div className='text-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20'>
+        <div className='absolute left-0 -top-12'>
+            <img 
+            src={author.photo.url} 
+            alt={author.name}
+            height="100px"
+            width="100px"
+            className='align-middle rounded-full'
+            />
+        </div>
+        <h3 className='text-white my-4 text-xl font-bold'>
+            {author.name}
+        </h3>
+        <p className='text-white text-lg'>
+            {author.bio}
+        </p>
+    </div>
   )
 }
 
