@@ -24,7 +24,7 @@ const CommentForm = ({ slug }: any) => {
         const { value: comment } = commentEl.current;
         const { value: name } = nameEl.current;
         const { value: email } = emailEl.current;
-        const { chacked: storeData } = storeDataEl.current;
+        const { checked: storeData } = storeDataEl.current;
 
         if (!name || ! comment || !email){
             setError(true);
@@ -33,8 +33,8 @@ const CommentForm = ({ slug }: any) => {
 
         const commentObj = { name, email, comment, slug };
         if (storeData) {
-            window.localStorage.setIem('name', name);
-            window.localStorage.setIem('email', email);
+            window.localStorage.setItem('name', name);
+            window.localStorage.setItem('email', email);
         } else {
             window.localStorage.removeItem('name');
             window.localStorage.removeItem('email');
@@ -91,7 +91,7 @@ const CommentForm = ({ slug }: any) => {
                 className='transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white px-8 py-3 cursor-pointer'>
                     Submit Comment
                 </button>
-                {showSuccessMessage && <span className='text-xl float-right font-semibold mt-3 text-green-500'> Comment submitted for review </span> }
+                {showSuccessMessage && <span className='text-xs float-right font-semibold mt-3 text-green-500'> Comment submitted for review </span> }
             </div>
         </div>
     )
