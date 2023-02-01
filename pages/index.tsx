@@ -43,7 +43,7 @@ export async function getStaticProps() {
 
 const Home = ({ posts }: Posts) => {
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-2 md:px-10 mb-8">
       <Head>
         <title>ZED.CODES</title>
         <link rel="icon" href="/favicon.ico" />
