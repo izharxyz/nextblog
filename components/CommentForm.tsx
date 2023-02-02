@@ -83,7 +83,7 @@ const CommentForm = ({ slug }: any) => {
                     <label htmlFor="storeData" className='text-gray-500 cursor-pointer ml-2'>save my email and name</label>
                 </div>
             </div>
-            { error && <p className='text-xs text-red-500'>All fields are required</p> }
+            { error && <p className='text-xs text-red-500 ml-1'>All fields are required</p> }
             <div className='mt-8'>
                 <button 
                 type='button' 
