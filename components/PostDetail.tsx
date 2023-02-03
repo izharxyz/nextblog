@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import CodeBlock from './CodeBlock'
 
 interface Post {
     post: {
@@ -31,6 +32,8 @@ const PostDetail = ({ post }: Post) => {
 
     const getContentFragment = (index:any, text:any, obj:any, type:any) => {
         let modifiedText = text;
+
+        console.log(obj)
         
         if (obj) {
             if (obj.bold) {
@@ -44,6 +47,9 @@ const PostDetail = ({ post }: Post) => {
             if (obj.underline) {
             modifiedText = (<u key={index}>{text}</u>);
             }
+            if (obj.code) {
+              modifiedText = (<code key={index} className="break-words whitespace-pre-wrap rounded-lg px-2 bg-[#D3D3D3] text-gray-700">{text}</code>)
+            }
         }
 
         switch (type) {
@@ -53,12 +59,14 @@ const PostDetail = ({ post }: Post) => {
               return <p key={index} className="mb-8">{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
             case 'heading-four':
               return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
-            //case 'code-block':
-              //modifiedText.map((item: any, i: any) => {
-               // console.log({item});
-              //})
+            case 'code-block':
+              modifiedText.map((item: any, i: any) => {
+                //item.replace(/\n/g, "<br />");
+                //console.log({item});
+              })
               // logic before returning
-              //return <code key={index} className="m-2 p-2 bg-gray-600 text-white rounded-md">{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</code>;
+              
+              return <CodeBlock key={index}>{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</CodeBlock>;
             case 'image':
               return (
                   <img
