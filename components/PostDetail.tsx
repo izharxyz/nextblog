@@ -48,7 +48,7 @@ const PostDetail = ({ post }: Post) => {
             modifiedText = (<u key={index}>{text}</u>);
             }
             if (obj.code) {
-              modifiedText = (<code key={index} className="break-words whitespace-pre-wrap rounded-lg px-2 bg-[#D3D3D3] text-gray-700">{text}</code>)
+              modifiedText = (<code key={index} className="break-words whitespace-pre-wrap rounded-lg px-2 bg-gray-200 text-gray-700">{text}</code>)
             }
         }
 
