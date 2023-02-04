@@ -33,7 +33,7 @@ const PostDetail = ({ post }: Post) => {
     const getContentFragment = (index:any, text:any, obj:any, type:any) => {
         let modifiedText = text;
 
-        //console.log(obj)
+        //console.log(obj)//
         
         if (obj) {
             if (obj.bold) {
