@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import { PostCard, PostWidget, Categories } from "$components";
+import { PostCard, PostWidget, Categories, Subscribe } from "$components";
 import { getPosts } from '$services';
 
 interface Post {
@@ -57,6 +57,9 @@ const Home = ({ posts }: Posts) => {
             <PostWidget categories='' slug=''/>
             <Categories/>
           </div>
+        </div>
+        <div className='lg:col-span-8 col-span-1'>
+          <Subscribe />
         </div>
       </div>
     </div>

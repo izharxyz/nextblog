@@ -2,7 +2,7 @@ import React from 'react';
 import { getPosts, getPostDetails } from '$services';
 import { GetStaticPaths } from 'next';
 
-import { Categories, PostWidget, PostDetail, Author, Comments, CommentForm } from '$components';
+import { Categories, PostWidget, PostDetail, Author, Comments, CommentForm, Subscribe } from '$components';
 
 
 export async function getStaticProps({ params }: any) {
@@ -51,6 +51,9 @@ const postDetail = ({ post }: any) => {
             <div className='col-span-1 lg:col-span-4'>
                 <PostWidget slug={post.slug} categories={post.categories.map((category: any) => category.slug)}/>
                 <Categories/>
+            </div>
+            <div className='lg:col-span-8 col-span-1'>
+              <Subscribe />
             </div>
         </div>
     </div>
