@@ -12,7 +12,7 @@ const Subscribe = () => {
                     <input type="email" placeholder="youremail@example.com" className="col-span-8 appearance-none rounded-full shadow p-3 text-gray-600 mr-2 focus:outline-none"/>
                     <button 
                       type='button' 
-                      className='col-span-4 transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white text-center px-5 py-3 cursor-pointer'>
+                      className='col-span-4 transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white text-center px-3 py-3 cursor-pointer'>
                           Subscribe
                     </button>
                 </div>
