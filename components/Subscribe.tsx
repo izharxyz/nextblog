@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Suscribe = () => {
+const Subscribe = () => {
   return (
     <div className="container font-sans bg-green-100 rounded mb-8 p-4 md:p-24 text-center">
         <h2 className="font-bold break-normal text-2xl md:text-4xl">Subscribe to ZED.CODES</h2>
@@ -17,4 +17,4 @@ const Suscribe = () => {
   )
 }
 
-export default Suscribe
+export default Subscribe
