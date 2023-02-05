@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Header } from './'
+import { Header, Footer } from './'
 
 type props = {
     children?: any
@@ -10,6 +10,7 @@ const Layout = ({ children }: props) => {
     <>
         <Header/>
         {children}
+        <Footer/>
     </>
   )
 }

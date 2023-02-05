@@ -9,3 +9,5 @@ export { default as CommentForm } from './CommentForm';
 export { default as PostDetail } from './PostDetail';
 export { default as CodeBlock } from './CodeBlock';
 export { default as Subscribe } from './Subscribe';
+export { default as Footer } from './Footer';
+
