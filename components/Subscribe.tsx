@@ -1,15 +1,20 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Subscribe = () => {
   return (
-    <div className="container font-sans bg-green-100 rounded mb-8 p-4 md:p-24 text-center">
-        <h2 className="font-bold break-normal text-2xl md:text-4xl">Subscribe to ZED.CODES</h2>
+    <div className="container mb-8 p-4 py-12 md:p-24 text-center shadow-lg rounded-lg bg-green-200 bg-opacity-80">
+        <h2 className="font-semibold break-normal text-3xl md:text-3xl">Subscribe to ZED.CODES</h2>
         <h3 className="font-bold break-normal text-gray-600 text-base md:text-xl">Get the latest posts delivered right to your inbox</h3>
         <div className="w-full text-center pt-4">
-            <form action="#">
-                <div className="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
-                    <input type="email" placeholder="youremail@example.com" className="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none"/>
-                    <button type="submit" className="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+            <form>
+                <div className="grid grid-cols-12 gap-2">
+                    <input type="email" placeholder="youremail@example.com" className="col-span-8 appearance-none rounded-full shadow p-3 text-gray-600 mr-2 focus:outline-none"/>
+                    <button 
+                      type='button' 
+                      className='col-span-4 transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg rounded-full text-white text-center px-5 py-3 cursor-pointer'>
+                          Subscribe
+                    </button>
                 </div>
             </form>
         </div>
