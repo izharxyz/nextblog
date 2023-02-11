@@ -19,5 +19,21 @@ export interface Post {
         name: string
         slug: string
       }
+      content: any
     }  
+}
+
+export interface Author {
+  author: {
+      name: string
+      bio: string
+      photo: {
+          url: string
+      }
+  }
+}
+
+export interface Category {
+  name: string;
+  slug: string;
 }
