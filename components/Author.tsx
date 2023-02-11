@@ -1,14 +1,6 @@
 import React from 'react'
 
-interface Author {
-    author: {
-        name: string
-        bio: string
-        photo: {
-            url: string
-        }
-    }
-}
+import { Author } from '$interface';
 
 const Author = ({ author}: Author) => {
   return (
