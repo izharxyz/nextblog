@@ -19,7 +19,7 @@ export interface Post {
         name: string
         slug: string
       }
-      content: any
+      content?: any
     }  
 }
 
