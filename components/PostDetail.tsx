@@ -90,7 +90,7 @@ const PostDetail = ({ post }: Post) => {
                     </span>
                 </div>
             </div>
-            <h1 className='mb-8 text-3xl font-semibold'>
+            <h1 className='mb-8 text-2xl font-semibold'>
                 {post.title}
             </h1>
 
