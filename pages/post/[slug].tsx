@@ -1,9 +1,8 @@
 import React from 'react';
-import { getPosts, getPostDetails } from '$services';
 import { GetStaticPaths } from 'next';
 
+import { getPostDetails } from '$services';
 import { PostWidget, PostDetail, Author, Comments, CommentForm } from '$components';
-
 
 export async function getStaticProps({ params }: any) {
     const data = (await getPostDetails(params.slug)) || [];
@@ -11,32 +10,6 @@ export async function getStaticProps({ params }: any) {
       props: { post: data }
     }
 }
-
-interface Post {
-    post: {
-      author: {
-        name: string
-        id: string
-        bio?: string | undefined
-        photo?: {
-          url: string
-        } | undefined
-      } 
-      title: string
-      excerpt: string
-      createdAt: string
-      slug: string
-      featuredImage: {
-        url: string
-      }
-      categories: {
-        name: string
-        slug: string
-      }[]
-      content: any
-    }  
-}
-
 
 const postDetail = ({ post }: any) => {
   return (

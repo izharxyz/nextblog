@@ -2,32 +2,11 @@ import Head from 'next/head'
 
 import { PostCard, PostWidget } from "$components";
 import { getPosts } from '$services';
-
-interface Post {
-  author: {
-    name: string
-    id: string
-    bio?: string
-    photo?: {
-      url: string
-    }
-  }
-  title: string
-  excerpt: string
-  createdAt: string
-  slug: string
-  featuredImage: {
-    url: string
-  }
-  categories: {
-    name: string
-    slug: string
-  }
-}
+import { Post } from '$interface';
 
 interface Posts {
   posts: {
-    node: Post
+    node: Post["post"]
   }[]
 }
 
