@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "$components": ["components"],
-      "$services": ["services"]
+      "$services": ["services"],
+      "$interface": ["interface"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
