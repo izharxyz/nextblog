@@ -36,12 +36,6 @@ const PostDetail = ({ post }: Post) => {
             case 'heading-four':
               return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
             case 'code-block':
-              modifiedText.map((item: any, i: any) => {
-                //item.replace(/\n/g, "<br />");
-                //console.log({item});
-              })
-              // logic before returning
-              
               return <CodeBlock key={index}>{modifiedText.map((item: any, i: any) => <React.Fragment key={i}>{item}</React.Fragment>)}</CodeBlock>;
             case 'image':
               return (
