@@ -6,7 +6,7 @@ import { Categories, Subscribe } from './'
 const Footer = () => {
   return (
     <div className="container mx-auto px-2 md:px-10 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-white shadow-lg rounded-lg mb-8 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-white shadow-lg rounded-lg pb-12">
             <div className='col-span-1 p-4 m-4'>
                 <h1 className='text-xl mb-2 font-semibold'>
                     ZED.CODES

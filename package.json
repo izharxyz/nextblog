@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-tailwind/react": "^1.2.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "html-react-parser": "^3.0.8",
