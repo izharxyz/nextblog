@@ -24,7 +24,7 @@ const Home = ({ posts }: Posts) => {
         <title>ZED.CODES</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className='lg:col-span-8 col-span-1'>
           {posts.map((post, index) => <PostCard post={post.node} key={post.node.title}/>)}
         </div>
