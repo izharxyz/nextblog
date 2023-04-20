@@ -1,3 +1,4 @@
-# Personal blog site 
+# Midterm Project 🤧
 
 https://nextblog-zzedddd.vercel.app/
+
